@@ -1,0 +1,3 @@
+﻿v0.4.2
+Main features:
+= fix to avoid issues with different local .NET Core versions

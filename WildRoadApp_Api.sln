@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.API", "1.API", "{64895A9D-9259-4B30-A1F3-990A111E3DE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildRoadApp_Api.API", "WildRoadApp_Api\WildRoadApp_Api.API\WildRoadApp_Api.API.csproj", "{BBC7E571-E8B0-49CF-B714-63B068B262CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildRoadApp_Api.API.Common", "WildRoadApp_Api\WildRoadApp_Api.API.Common\WildRoadApp_Api.API.Common.csproj", "{AC6AAC70-8741-47C0-818F-15FF43C48486}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildRoadApp_Api.API.DataContracts", "WildRoadApp_Api\WildRoadApp_Api.API.DataContracts\WildRoadApp_Api.API.DataContracts.csproj", "{CF66BBBA-85E0-4437-9ABE-5DA3348BBA98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00.Tests", "00.Tests", "{4E88DC84-32BE-41A4-9275-E652ED30FD4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildRoadApp_Api.API.Tests.Controllers", "WildRoadApp_Api\WildRoadApp_Api.API.Tests.Controllers\WildRoadApp_Api.API.Tests.Controllers.csproj", "{2877B444-26D2-4277-9E2C-623D7635FE74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildRoadApp_Api.API.Tests.REST", "WildRoadApp_Api\WildRoadApp_Api.API.Tests.REST\WildRoadApp_Api.API.Tests.REST.csproj", "{3AADEE15-D824-4A2B-AB11-EA0E97DAC90A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Common", "01.Common", "{072FC6F3-9062-4C72-A56E-DF672541073F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildRoadApp_Api.IoC.Configuration", "WildRoadApp_Api\WildRoadApp_Api.IoC.Configuration\WildRoadApp_Api.IoC.Configuration.csproj", "{28054C98-0D01-46F8-94F3-362573DCE5C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildRoadApp_Api.Tools", "WildRoadApp_Api\WildRoadApp_Api.Tools\WildRoadApp_Api.Tools.csproj", "{84DD554A-CB79-4E49-828F-AB0A8EF34273}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Services", "2.Services", "{80DF6532-9F19-41DB-8F7E-95A4CA953004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildRoadApp_Api.Services", "WildRoadApp_Api\WildRoadApp_Api.Services\WildRoadApp_Api.Services.csproj", "{5745FA94-71F2-4170-9EF1-14399C2FBF7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Repositories", "3.Repositories", "{A46ECAA3-2C19-43E4-89D8-3C910E715593}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBC7E571-E8B0-49CF-B714-63B068B262CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC7E571-E8B0-49CF-B714-63B068B262CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC7E571-E8B0-49CF-B714-63B068B262CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC7E571-E8B0-49CF-B714-63B068B262CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC6AAC70-8741-47C0-818F-15FF43C48486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC6AAC70-8741-47C0-818F-15FF43C48486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC6AAC70-8741-47C0-818F-15FF43C48486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC6AAC70-8741-47C0-818F-15FF43C48486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF66BBBA-85E0-4437-9ABE-5DA3348BBA98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF66BBBA-85E0-4437-9ABE-5DA3348BBA98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF66BBBA-85E0-4437-9ABE-5DA3348BBA98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF66BBBA-85E0-4437-9ABE-5DA3348BBA98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2877B444-26D2-4277-9E2C-623D7635FE74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2877B444-26D2-4277-9E2C-623D7635FE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2877B444-26D2-4277-9E2C-623D7635FE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2877B444-26D2-4277-9E2C-623D7635FE74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AADEE15-D824-4A2B-AB11-EA0E97DAC90A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AADEE15-D824-4A2B-AB11-EA0E97DAC90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AADEE15-D824-4A2B-AB11-EA0E97DAC90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AADEE15-D824-4A2B-AB11-EA0E97DAC90A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28054C98-0D01-46F8-94F3-362573DCE5C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28054C98-0D01-46F8-94F3-362573DCE5C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28054C98-0D01-46F8-94F3-362573DCE5C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28054C98-0D01-46F8-94F3-362573DCE5C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84DD554A-CB79-4E49-828F-AB0A8EF34273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84DD554A-CB79-4E49-828F-AB0A8EF34273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84DD554A-CB79-4E49-828F-AB0A8EF34273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84DD554A-CB79-4E49-828F-AB0A8EF34273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5745FA94-71F2-4170-9EF1-14399C2FBF7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5745FA94-71F2-4170-9EF1-14399C2FBF7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5745FA94-71F2-4170-9EF1-14399C2FBF7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5745FA94-71F2-4170-9EF1-14399C2FBF7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BBC7E571-E8B0-49CF-B714-63B068B262CF} = {64895A9D-9259-4B30-A1F3-990A111E3DE5}
+		{AC6AAC70-8741-47C0-818F-15FF43C48486} = {64895A9D-9259-4B30-A1F3-990A111E3DE5}
+		{CF66BBBA-85E0-4437-9ABE-5DA3348BBA98} = {64895A9D-9259-4B30-A1F3-990A111E3DE5}
+		{2877B444-26D2-4277-9E2C-623D7635FE74} = {4E88DC84-32BE-41A4-9275-E652ED30FD4D}
+		{3AADEE15-D824-4A2B-AB11-EA0E97DAC90A} = {4E88DC84-32BE-41A4-9275-E652ED30FD4D}
+		{28054C98-0D01-46F8-94F3-362573DCE5C2} = {072FC6F3-9062-4C72-A56E-DF672541073F}
+		{84DD554A-CB79-4E49-828F-AB0A8EF34273} = {072FC6F3-9062-4C72-A56E-DF672541073F}
+		{5745FA94-71F2-4170-9EF1-14399C2FBF7F} = {80DF6532-9F19-41DB-8F7E-95A4CA953004}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D68D9E22-EA3D-461C-924F-4D22D320F790}
+	EndGlobalSection
+EndGlobal
