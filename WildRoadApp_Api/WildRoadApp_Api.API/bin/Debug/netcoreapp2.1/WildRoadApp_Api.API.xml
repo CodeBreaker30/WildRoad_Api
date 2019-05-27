@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WildRoadApp_Api.API</name>
+    </assembly>
+    <members>
+        <member name="M:WildRoadApp_Api.API.Controllers.UserController.Get(System.String)">
+            <summary>
+            Comments and descriptions can be added to every endpoint using XML comments.
+            </summary>
+            <remarks>
+            XML comments included in controllers will be extracted and injected in Swagger/OpenAPI file.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WildRoadApp_Api.API.Controllers.UserControllerV2.Get(System.String)">
+            <summary>
+            Comments and descriptions can be added to every endpoint using XML comments.
+            </summary>
+            <remarks>
+            XML comments included in controllers will be extracted and injected in Swagger/OpenAPI file.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WildRoadApp_Api.API.Swagger.SwaggerDefaultValues">
+            <summary>
+            Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.
+            </summary>
+            <remarks>This <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"/> is only required due to bugs in the <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator"/>.
+            Once they are fixed and published, this class can be removed.</remarks>
+        </member>
+        <member name="M:WildRoadApp_Api.API.Swagger.SwaggerDefaultValues.Apply(Swashbuckle.AspNetCore.Swagger.Operation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies the filter to the specified operation using the given context.
+            </summary>
+            <param name="operation">The operation to apply the filter to.</param>
+            <param name="context">The current operation filter context.</param>
+        </member>
+    </members>
+</doc>

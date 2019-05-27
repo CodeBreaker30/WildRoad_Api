@@ -1,0 +1,782 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WildRoadDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WildRoadDatabase.dbo.ACCIDENT_TREND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ACCIDENT_TREND">
+          <Key>
+            <PropertyRef Name="postcode" />
+            <PropertyRef Name="trend" />
+          </Key>
+          <Property Name="postcode" Type="int" Nullable="false" />
+          <Property Name="trend" Type="binary" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ALERT">
+          <Key>
+            <PropertyRef Name="alert_id" />
+          </Key>
+          <Property Name="alert_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="longitude" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="latitude" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="date_time" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ANIMAL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="common_name" Type="varchar" MaxLength="255" />
+          <Property Name="scientific_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="create_time" Type="datetime" />
+          <Property Name="is_endangered" Type="binary" MaxLength="1" />
+          <Property Name="clasification" Type="varchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="APPUSER">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="machine_id" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="create_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BuildVersion">
+          <Key>
+            <PropertyRef Name="SystemInformationID" />
+          </Key>
+          <Property Name="SystemInformationID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Database Version" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="VersionDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cluster_Info">
+          <Key>
+            <PropertyRef Name="accident_number" />
+          </Key>
+          <Property Name="accident_number" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="cluster_no" Type="int" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="ErrorLogID" />
+          </Key>
+          <Property Name="ErrorLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ErrorTime" Type="datetime" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ErrorNumber" Type="int" Nullable="false" />
+          <Property Name="ErrorSeverity" Type="int" />
+          <Property Name="ErrorState" Type="int" />
+          <Property Name="ErrorProcedure" Type="nvarchar" MaxLength="126" />
+          <Property Name="ErrorLine" Type="int" />
+          <Property Name="ErrorMessage" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WildRoadDatabase.dbo.GEO_FENCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GEO_FENCE">
+          <Key>
+            <PropertyRef Name="fence_id" />
+            <PropertyRef Name="accident_no" />
+            <PropertyRef Name="fence_name" />
+            <PropertyRef Name="latitude" />
+            <PropertyRef Name="longitude" />
+            <PropertyRef Name="risk_grade" />
+          </Key>
+          <Property Name="fence_id" Type="int" Nullable="false" />
+          <Property Name="accident_no" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fence_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="latitude" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="longitude" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="risk_grade" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GEOFENCE">
+          <Key>
+            <PropertyRef Name="id_geofence" />
+          </Key>
+          <Property Name="id_geofence" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="north_pos" Type="varchar" MaxLength="32" />
+          <Property Name="east_pos" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="west_pos" Type="varchar" MaxLength="32" />
+          <Property Name="south_pos" Type="varchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="HISTORY_REPORT">
+          <Key>
+            <PropertyRef Name="accident_number" />
+          </Key>
+          <Property Name="accident_number" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="accident_date" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="accident_time" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="day_week_desc" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="light_condition_desc" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="severity" Type="int" Nullable="false" />
+          <Property Name="speed_zone" Type="int" Nullable="false" />
+          <Property Name="lg_area_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="region_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="deg_urban_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="latitude" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="longitude" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="postcode" Type="int" Nullable="false" />
+          <Property Name="nearest_national_park_name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INCIDENT">
+          <Key>
+            <PropertyRef Name="incident_id" />
+          </Key>
+          <Property Name="incident_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId_report" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="latitude" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="longitude" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="suburb" Type="varchar" MaxLength="45" />
+          <Property Name="people_hurt" Type="smallint" />
+          <Property Name="animal" Type="varchar" MaxLength="45" />
+          <Property Name="incident_date" Type="varchar" MaxLength="45" />
+          <Property Name="comments" Type="varchar(max)" />
+          <Property Name="incident_type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INCIDENT_TYPE">
+          <Key>
+            <PropertyRef Name="type_no" />
+          </Key>
+          <Property Name="type_no" Type="int" Nullable="false" />
+          <Property Name="type_description" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NATIONAL_PARK">
+          <Key>
+            <PropertyRef Name="np_id" />
+          </Key>
+          <Property Name="np_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="np_name" Type="varchar" MaxLength="255" />
+          <Property Name="np_description" Type="varchar" MaxLength="45" />
+          <Property Name="np_longitude" Type="varchar" MaxLength="45" />
+          <Property Name="np_latitude" Type="varchar" MaxLength="45" />
+          <Property Name="np_frequency" Type="int" />
+          <Property Name="np_picture_link" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="REPORT">
+          <Key>
+            <PropertyRef Name="id_report" />
+            <PropertyRef Name="type_report_report_id" />
+            <PropertyRef Name="ANIMAL_id" />
+            <PropertyRef Name="user_id_user" />
+          </Key>
+          <Property Name="id_report" Type="int" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="create_time" Type="datetime" />
+          <Property Name="departure_location" Type="varchar" MaxLength="45" />
+          <Property Name="destination_location" Type="varchar" MaxLength="45" />
+          <Property Name="type_report_report_id" Type="int" Nullable="false" />
+          <Property Name="ANIMAL_id" Type="int" Nullable="false" />
+          <Property Name="user_id_user" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPE_REPORT">
+          <Key>
+            <PropertyRef Name="report_id" />
+          </Key>
+          <Property Name="report_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_accident_number_from_history_report">
+          <End Role="HISTORY_REPORT" Type="Self.HISTORY_REPORT" Multiplicity="1" />
+          <End Role="Cluster_Info" Type="Self.Cluster_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORY_REPORT">
+              <PropertyRef Name="accident_number" />
+            </Principal>
+            <Dependent Role="Cluster_Info">
+              <PropertyRef Name="accident_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_accident_number_from_incident_type">
+          <End Role="INCIDENT_TYPE" Type="Self.INCIDENT_TYPE" Multiplicity="1" />
+          <End Role="INCIDENT" Type="Self.INCIDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INCIDENT_TYPE">
+              <PropertyRef Name="type_no" />
+            </Principal>
+            <Dependent Role="INCIDENT">
+              <PropertyRef Name="incident_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Report_ANIMAL1">
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="1" />
+          <End Role="REPORT" Type="Self.REPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANIMAL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REPORT">
+              <PropertyRef Name="ANIMAL_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Report_type_report">
+          <End Role="TYPE_REPORT" Type="Self.TYPE_REPORT" Multiplicity="1" />
+          <End Role="REPORT" Type="Self.REPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_REPORT">
+              <PropertyRef Name="report_id" />
+            </Principal>
+            <Dependent Role="REPORT">
+              <PropertyRef Name="type_report_report_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Report_user1">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="1" />
+          <End Role="REPORT" Type="Self.REPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="REPORT">
+              <PropertyRef Name="user_id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WildRoadDatabaseModelStoreContainer">
+          <EntitySet Name="ALERT" EntityType="Self.ALERT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ANIMAL" EntityType="Self.ANIMAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APPUSER" EntityType="Self.APPUSER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BuildVersion" EntityType="Self.BuildVersion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cluster_Info" EntityType="Self.Cluster_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GEOFENCE" EntityType="Self.GEOFENCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORY_REPORT" EntityType="Self.HISTORY_REPORT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INCIDENT" EntityType="Self.INCIDENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INCIDENT_TYPE" EntityType="Self.INCIDENT_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NATIONAL_PARK" EntityType="Self.NATIONAL_PARK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REPORT" EntityType="Self.REPORT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPE_REPORT" EntityType="Self.TYPE_REPORT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ACCIDENT_TREND" EntityType="Self.ACCIDENT_TREND" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ACCIDENT_TREND].[postcode] AS [postcode], 
+    [ACCIDENT_TREND].[trend] AS [trend]
+    FROM [dbo].[ACCIDENT_TREND] AS [ACCIDENT_TREND]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GEO_FENCE" EntityType="Self.GEO_FENCE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GEO_FENCE].[fence_id] AS [fence_id], 
+    [GEO_FENCE].[accident_no] AS [accident_no], 
+    [GEO_FENCE].[fence_name] AS [fence_name], 
+    [GEO_FENCE].[latitude] AS [latitude], 
+    [GEO_FENCE].[longitude] AS [longitude], 
+    [GEO_FENCE].[risk_grade] AS [risk_grade]
+    FROM [dbo].[GEO_FENCE] AS [GEO_FENCE]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_accident_number_from_history_report" Association="Self.fk_accident_number_from_history_report">
+            <End Role="HISTORY_REPORT" EntitySet="HISTORY_REPORT" />
+            <End Role="Cluster_Info" EntitySet="Cluster_Info" />
+          </AssociationSet>
+          <AssociationSet Name="fk_accident_number_from_incident_type" Association="Self.fk_accident_number_from_incident_type">
+            <End Role="INCIDENT_TYPE" EntitySet="INCIDENT_TYPE" />
+            <End Role="INCIDENT" EntitySet="INCIDENT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Report_ANIMAL1" Association="Self.fk_Report_ANIMAL1">
+            <End Role="ANIMAL" EntitySet="ANIMAL" />
+            <End Role="REPORT" EntitySet="REPORT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Report_type_report" Association="Self.fk_Report_type_report">
+            <End Role="TYPE_REPORT" EntitySet="TYPE_REPORT" />
+            <End Role="REPORT" EntitySet="REPORT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Report_user1" Association="Self.fk_Report_user1">
+            <End Role="APPUSER" EntitySet="APPUSER" />
+            <End Role="REPORT" EntitySet="REPORT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WildRoadDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ALERT">
+          <Key>
+            <PropertyRef Name="alert_id" />
+          </Key>
+          <Property Name="alert_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="longitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_time" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ANIMAL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="common_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="scientific_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_time" Type="DateTime" Precision="3" />
+          <Property Name="is_endangered" Type="Binary" MaxLength="1" FixedLength="true" />
+          <Property Name="clasification" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="REPORTs" Relationship="Self.fk_Report_ANIMAL1" FromRole="ANIMAL" ToRole="REPORT" />
+        </EntityType>
+        <EntityType Name="APPUSER">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="machine_id" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="REPORTs" Relationship="Self.fk_Report_user1" FromRole="APPUSER" ToRole="REPORT" />
+        </EntityType>
+        <EntityType Name="BuildVersion">
+          <Key>
+            <PropertyRef Name="SystemInformationID" />
+          </Key>
+          <Property Name="SystemInformationID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Database_Version" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VersionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Cluster_Info">
+          <Key>
+            <PropertyRef Name="accident_number" />
+          </Key>
+          <Property Name="accident_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cluster_no" Type="Int32" />
+          <NavigationProperty Name="HISTORY_REPORT" Relationship="Self.fk_accident_number_from_history_report" FromRole="Cluster_Info" ToRole="HISTORY_REPORT" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="ErrorLogID" />
+          </Key>
+          <Property Name="ErrorLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ErrorTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ErrorNumber" Type="Int32" Nullable="false" />
+          <Property Name="ErrorSeverity" Type="Int32" />
+          <Property Name="ErrorState" Type="Int32" />
+          <Property Name="ErrorProcedure" Type="String" MaxLength="126" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorLine" Type="Int32" />
+          <Property Name="ErrorMessage" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GEOFENCE">
+          <Key>
+            <PropertyRef Name="id_geofence" />
+          </Key>
+          <Property Name="id_geofence" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="north_pos" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="east_pos" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="west_pos" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="south_pos" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HISTORY_REPORT">
+          <Key>
+            <PropertyRef Name="accident_number" />
+          </Key>
+          <Property Name="accident_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accident_date" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accident_time" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="day_week_desc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="light_condition_desc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="severity" Type="Int32" Nullable="false" />
+          <Property Name="speed_zone" Type="Int32" Nullable="false" />
+          <Property Name="lg_area_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="region_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deg_urban_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="longitude" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postcode" Type="Int32" Nullable="false" />
+          <Property Name="nearest_national_park_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cluster_Info" Relationship="Self.fk_accident_number_from_history_report" FromRole="HISTORY_REPORT" ToRole="Cluster_Info" />
+        </EntityType>
+        <EntityType Name="NATIONAL_PARK">
+          <Key>
+            <PropertyRef Name="np_id" />
+          </Key>
+          <Property Name="np_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="np_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="np_description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="np_longitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="np_latitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="np_frequency" Type="Int32" />
+          <Property Name="np_picture_link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="REPORT">
+          <Key>
+            <PropertyRef Name="id_report" />
+            <PropertyRef Name="type_report_report_id" />
+            <PropertyRef Name="ANIMAL_id" />
+            <PropertyRef Name="user_id_user" />
+          </Key>
+          <Property Name="id_report" Type="Int32" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="create_time" Type="DateTime" Precision="3" />
+          <Property Name="departure_location" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="destination_location" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="type_report_report_id" Type="Int32" Nullable="false" />
+          <Property Name="ANIMAL_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id_user" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ANIMAL" Relationship="Self.fk_Report_ANIMAL1" FromRole="REPORT" ToRole="ANIMAL" />
+          <NavigationProperty Name="APPUSER" Relationship="Self.fk_Report_user1" FromRole="REPORT" ToRole="APPUSER" />
+          <NavigationProperty Name="TYPE_REPORT" Relationship="Self.fk_Report_type_report" FromRole="REPORT" ToRole="TYPE_REPORT" />
+        </EntityType>
+        <EntityType Name="TYPE_REPORT">
+          <Key>
+            <PropertyRef Name="report_id" />
+          </Key>
+          <Property Name="report_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="REPORTs" Relationship="Self.fk_Report_type_report" FromRole="TYPE_REPORT" ToRole="REPORT" />
+        </EntityType>
+        <EntityType Name="ACCIDENT_TREND">
+          <Key>
+            <PropertyRef Name="postcode" />
+            <PropertyRef Name="trend" />
+          </Key>
+          <Property Name="postcode" Type="Int32" Nullable="false" />
+          <Property Name="trend" Type="Binary" MaxLength="1" FixedLength="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GEO_FENCE">
+          <Key>
+            <PropertyRef Name="fence_id" />
+            <PropertyRef Name="accident_no" />
+            <PropertyRef Name="fence_name" />
+            <PropertyRef Name="latitude" />
+            <PropertyRef Name="longitude" />
+            <PropertyRef Name="risk_grade" />
+          </Key>
+          <Property Name="fence_id" Type="Int32" Nullable="false" />
+          <Property Name="accident_no" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fence_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="longitude" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="risk_grade" Type="Double" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Report_ANIMAL1">
+          <End Role="ANIMAL" Type="Self.ANIMAL" Multiplicity="1" />
+          <End Role="REPORT" Type="Self.REPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANIMAL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REPORT">
+              <PropertyRef Name="ANIMAL_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Report_user1">
+          <End Role="APPUSER" Type="Self.APPUSER" Multiplicity="1" />
+          <End Role="REPORT" Type="Self.REPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APPUSER">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="REPORT">
+              <PropertyRef Name="user_id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_accident_number_from_history_report">
+          <End Role="HISTORY_REPORT" Type="Self.HISTORY_REPORT" Multiplicity="1" />
+          <End Role="Cluster_Info" Type="Self.Cluster_Info" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORY_REPORT">
+              <PropertyRef Name="accident_number" />
+            </Principal>
+            <Dependent Role="Cluster_Info">
+              <PropertyRef Name="accident_number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Report_type_report">
+          <End Role="TYPE_REPORT" Type="Self.TYPE_REPORT" Multiplicity="1" />
+          <End Role="REPORT" Type="Self.REPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_REPORT">
+              <PropertyRef Name="report_id" />
+            </Principal>
+            <Dependent Role="REPORT">
+              <PropertyRef Name="type_report_report_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WildRoadDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ALERTs" EntityType="Self.ALERT" />
+          <EntitySet Name="ANIMALs" EntityType="Self.ANIMAL" />
+          <EntitySet Name="APPUSERs" EntityType="Self.APPUSER" />
+          <EntitySet Name="BuildVersions" EntityType="Self.BuildVersion" />
+          <EntitySet Name="Cluster_Info" EntityType="Self.Cluster_Info" />
+          <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLog" />
+          <EntitySet Name="GEOFENCEs" EntityType="Self.GEOFENCE" />
+          <EntitySet Name="HISTORY_REPORT" EntityType="Self.HISTORY_REPORT" />
+          <EntitySet Name="NATIONAL_PARK" EntityType="Self.NATIONAL_PARK" />
+          <EntitySet Name="REPORTs" EntityType="Self.REPORT" />
+          <EntitySet Name="TYPE_REPORT" EntityType="Self.TYPE_REPORT" />
+          <EntitySet Name="ACCIDENT_TREND" EntityType="Self.ACCIDENT_TREND" />
+          <EntitySet Name="GEO_FENCE" EntityType="Self.GEO_FENCE" />
+          <AssociationSet Name="fk_Report_ANIMAL1" Association="Self.fk_Report_ANIMAL1">
+            <End Role="ANIMAL" EntitySet="ANIMALs" />
+            <End Role="REPORT" EntitySet="REPORTs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Report_user1" Association="Self.fk_Report_user1">
+            <End Role="APPUSER" EntitySet="APPUSERs" />
+            <End Role="REPORT" EntitySet="REPORTs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_accident_number_from_history_report" Association="Self.fk_accident_number_from_history_report">
+            <End Role="HISTORY_REPORT" EntitySet="HISTORY_REPORT" />
+            <End Role="Cluster_Info" EntitySet="Cluster_Info" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Report_type_report" Association="Self.fk_Report_type_report">
+            <End Role="TYPE_REPORT" EntitySet="TYPE_REPORT" />
+            <End Role="REPORT" EntitySet="REPORTs" />
+          </AssociationSet>
+          <EntitySet Name="INCIDENTs" EntityType="WildRoadDatabaseModel.INCIDENT" />
+          <EntitySet Name="INCIDENT_TYPE" EntityType="WildRoadDatabaseModel.INCIDENT_TYPE" />
+          <AssociationSet Name="fk_accident_number_from_report_type" Association="WildRoadDatabaseModel.fk_accident_number_from_report_type">
+            <End Role="INCIDENT_TYPE" EntitySet="INCIDENT_TYPE" />
+            <End Role="INCIDENT" EntitySet="INCIDENTs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="INCIDENT">
+          <Key>
+            <PropertyRef Name="incident_id" />
+          </Key>
+          <Property Name="incident_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="latitude" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="longitude" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="suburb" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="people_hurt" Type="Int16" />
+          <Property Name="animal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="incident_date" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="incident_type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="INCIDENT_TYPE1" Relationship="WildRoadDatabaseModel.fk_accident_number_from_report_type" FromRole="INCIDENT" ToRole="INCIDENT_TYPE" />
+          <Property Name="userId_report" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="INCIDENT_TYPE">
+          <Key>
+            <PropertyRef Name="type_no" />
+          </Key>
+          <Property Name="type_no" Type="Int32" Nullable="false" />
+          <Property Name="type_description" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INCIDENTs" Relationship="WildRoadDatabaseModel.fk_accident_number_from_report_type" FromRole="INCIDENT_TYPE" ToRole="INCIDENT" />
+        </EntityType>
+        <Association Name="fk_accident_number_from_report_type">
+          <End Type="WildRoadDatabaseModel.INCIDENT_TYPE" Role="INCIDENT_TYPE" Multiplicity="1" />
+          <End Type="WildRoadDatabaseModel.INCIDENT" Role="INCIDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INCIDENT_TYPE">
+              <PropertyRef Name="type_no" />
+            </Principal>
+            <Dependent Role="INCIDENT">
+              <PropertyRef Name="incident_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WildRoadDatabaseModelStoreContainer" CdmEntityContainer="WildRoadDBEntities">
+          <EntitySetMapping Name="ALERTs">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.ALERT">
+              <MappingFragment StoreEntitySet="ALERT">
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+                <ScalarProperty Name="alert_id" ColumnName="alert_id" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ANIMALs">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.ANIMAL">
+              <MappingFragment StoreEntitySet="ANIMAL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="common_name" ColumnName="common_name" />
+                <ScalarProperty Name="scientific_name" ColumnName="scientific_name" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="is_endangered" ColumnName="is_endangered" />
+                <ScalarProperty Name="clasification" ColumnName="clasification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APPUSERs">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.APPUSER">
+              <MappingFragment StoreEntitySet="APPUSER">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="machine_id" ColumnName="machine_id" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BuildVersions">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.BuildVersion">
+              <MappingFragment StoreEntitySet="BuildVersion">
+                <ScalarProperty Name="SystemInformationID" ColumnName="SystemInformationID" />
+                <ScalarProperty Name="Database_Version" ColumnName="Database Version" />
+                <ScalarProperty Name="VersionDate" ColumnName="VersionDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cluster_Info">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.Cluster_Info">
+              <MappingFragment StoreEntitySet="Cluster_Info">
+                <ScalarProperty Name="accident_number" ColumnName="accident_number" />
+                <ScalarProperty Name="cluster_no" ColumnName="cluster_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorLogs">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.ErrorLog">
+              <MappingFragment StoreEntitySet="ErrorLog">
+                <ScalarProperty Name="ErrorLogID" ColumnName="ErrorLogID" />
+                <ScalarProperty Name="ErrorTime" ColumnName="ErrorTime" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ErrorNumber" ColumnName="ErrorNumber" />
+                <ScalarProperty Name="ErrorSeverity" ColumnName="ErrorSeverity" />
+                <ScalarProperty Name="ErrorState" ColumnName="ErrorState" />
+                <ScalarProperty Name="ErrorProcedure" ColumnName="ErrorProcedure" />
+                <ScalarProperty Name="ErrorLine" ColumnName="ErrorLine" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GEOFENCEs">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.GEOFENCE">
+              <MappingFragment StoreEntitySet="GEOFENCE">
+                <ScalarProperty Name="id_geofence" ColumnName="id_geofence" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="north_pos" ColumnName="north_pos" />
+                <ScalarProperty Name="east_pos" ColumnName="east_pos" />
+                <ScalarProperty Name="west_pos" ColumnName="west_pos" />
+                <ScalarProperty Name="south_pos" ColumnName="south_pos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORY_REPORT">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.HISTORY_REPORT">
+              <MappingFragment StoreEntitySet="HISTORY_REPORT">
+                <ScalarProperty Name="accident_number" ColumnName="accident_number" />
+                <ScalarProperty Name="accident_date" ColumnName="accident_date" />
+                <ScalarProperty Name="accident_time" ColumnName="accident_time" />
+                <ScalarProperty Name="day_week_desc" ColumnName="day_week_desc" />
+                <ScalarProperty Name="light_condition_desc" ColumnName="light_condition_desc" />
+                <ScalarProperty Name="severity" ColumnName="severity" />
+                <ScalarProperty Name="speed_zone" ColumnName="speed_zone" />
+                <ScalarProperty Name="lg_area_name" ColumnName="lg_area_name" />
+                <ScalarProperty Name="region_name" ColumnName="region_name" />
+                <ScalarProperty Name="deg_urban_name" ColumnName="deg_urban_name" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="nearest_national_park_name" ColumnName="nearest_national_park_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NATIONAL_PARK">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.NATIONAL_PARK">
+              <MappingFragment StoreEntitySet="NATIONAL_PARK">
+                <ScalarProperty Name="np_id" ColumnName="np_id" />
+                <ScalarProperty Name="np_name" ColumnName="np_name" />
+                <ScalarProperty Name="np_description" ColumnName="np_description" />
+                <ScalarProperty Name="np_longitude" ColumnName="np_longitude" />
+                <ScalarProperty Name="np_latitude" ColumnName="np_latitude" />
+                <ScalarProperty Name="np_frequency" ColumnName="np_frequency" />
+                <ScalarProperty Name="np_picture_link" ColumnName="np_picture_link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORTs">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.REPORT">
+              <MappingFragment StoreEntitySet="REPORT">
+                <ScalarProperty Name="id_report" ColumnName="id_report" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="departure_location" ColumnName="departure_location" />
+                <ScalarProperty Name="destination_location" ColumnName="destination_location" />
+                <ScalarProperty Name="type_report_report_id" ColumnName="type_report_report_id" />
+                <ScalarProperty Name="ANIMAL_id" ColumnName="ANIMAL_id" />
+                <ScalarProperty Name="user_id_user" ColumnName="user_id_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPE_REPORT">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.TYPE_REPORT">
+              <MappingFragment StoreEntitySet="TYPE_REPORT">
+                <ScalarProperty Name="report_id" ColumnName="report_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACCIDENT_TREND">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.ACCIDENT_TREND">
+              <MappingFragment StoreEntitySet="ACCIDENT_TREND">
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="trend" ColumnName="trend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GEO_FENCE">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.GEO_FENCE">
+              <MappingFragment StoreEntitySet="GEO_FENCE">
+                <ScalarProperty Name="fence_id" ColumnName="fence_id" />
+                <ScalarProperty Name="accident_no" ColumnName="accident_no" />
+                <ScalarProperty Name="fence_name" ColumnName="fence_name" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="risk_grade" ColumnName="risk_grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INCIDENTs">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.INCIDENT">
+              <MappingFragment StoreEntitySet="INCIDENT">
+                <ScalarProperty Name="userId_report" ColumnName="userId_report" />
+                <ScalarProperty Name="incident_type" ColumnName="incident_type" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="incident_date" ColumnName="incident_date" />
+                <ScalarProperty Name="animal" ColumnName="animal" />
+                <ScalarProperty Name="people_hurt" ColumnName="people_hurt" />
+                <ScalarProperty Name="suburb" ColumnName="suburb" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="incident_id" ColumnName="incident_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INCIDENT_TYPE">
+            <EntityTypeMapping TypeName="WildRoadDatabaseModel.INCIDENT_TYPE">
+              <MappingFragment StoreEntitySet="INCIDENT_TYPE">
+                <ScalarProperty Name="type_description" ColumnName="type_description" />
+                <ScalarProperty Name="type_no" ColumnName="type_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

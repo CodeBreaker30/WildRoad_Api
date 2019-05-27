@@ -3,3 +3,27 @@
 ################################################################################
 
 /packages
+/ClassLibrary2
+/ClassLibrary1
+/.vs
+/WildRoad.Service.API/bin
+/WildRoad.Service.API/obj
+/WildRoad.Tools.Utilities/obj
+/WildRoad.Tools.Utilities/bin
+/WildRoadApp_Api/WildRoadApp_Api.API/obj
+/WildRoadApp_Api/WildRoadApp_Api.API.Common/obj
+/WildRoadApp_Api/WildRoadApp_Api.API.Common/bin/Debug/netcoreapp2.1
+/WildRoadApp_Api/WildRoadApp_Api.API.DataContracts/obj
+/WildRoadApp_Api/WildRoadApp_Api.API.DataContracts/bin/Debug/netcoreapp2.1
+/WildRoadApp_Api/WildRoadApp_Api.API.Tests.Controllers/obj
+/WildRoadApp_Api/WildRoadApp_Api.API.Tests.REST/obj/Debug/netcoreapp2.1
+/WildRoadApp_Api/WildRoadApp_Api.IoC.Configuration/obj
+/WildRoadApp_Api/WildRoadApp_Api.IoC.Configuration/bin/Debug/netcoreapp2.1
+/WildRoadApp_Api/WildRoadApp_Api.Services/bin/Debug/netcoreapp2.1
+/WildRoadApp_Api/WildRoadApp_Api.Services/obj
+/WildRoadApp_Api/WildRoadApp_Api.Tools/obj/Release/netcoreapp2.1
+/WildRoadApp_Api/WildRoadApp_Api.Tools/obj/Debug/netcoreapp2.1
+/WildRoadApp_Api.DataManager/obj
+/WildRoadApp_Api.DataManager/bin
+/WildRoadEntityModel/obj
+/WildRoadEntityModel/bin

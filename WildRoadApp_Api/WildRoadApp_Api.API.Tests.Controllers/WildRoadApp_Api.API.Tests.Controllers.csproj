@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WildRoadApp_Api.API.DataContracts\WildRoadApp_Api.API.DataContracts.csproj" />
     <ProjectReference Include="..\WildRoadApp_Api.API\WildRoadApp_Api.API.csproj" />
     <ProjectReference Include="..\WildRoadApp_Api.IoC.Configuration\WildRoadApp_Api.IoC.Configuration.csproj" />
     <ProjectReference Include="..\WildRoadApp_Api.Tools\WildRoadApp_Api.Tools.csproj" />
